@@ -48,7 +48,7 @@
         <div className="score-display"><strong>{totalScore}</strong><span>/ 50</span></div>
         <h2>{band.title}</h2><p className="result-description">{band.description}</p>
         <div className="result-meta"><span>{completed} of 5 decisions completed</span><span>{Math.round((totalScore / 50) * 100)}% score</span></div>
-        <div className="score-track"><div style={{width: `${totalScore}%`}}/></div>
+        <div className="score-track"><div style={{width: `${Math.round((totalScore / 50) * 100)}%`}}/></div>
         <div className="reflection"><h3>Take a moment to reflect</h3><p>Which assumption most influenced your decisions, and what evidence would make you change course?</p></div>
         <button className="primary-btn" onClick={restart}><RotateCcw size={17}/> Try again</button>
         <p className="privacy-note">Your answers are not saved or submitted.</p>
