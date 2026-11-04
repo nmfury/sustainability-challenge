@@ -31,7 +31,7 @@
       <div className="hero-card">
         <div className="eyebrow">A SUSTAINABILITY MANAGEMENT SIMULATION</div>
         <h1>Sustainability<br/><em>Innovation Challenge</em></h1>
-        <p className="lead">You are the management team of XYZ Components. Make ten decisions as your fictional manufacturer responds to sustainability pressures while protecting its business.</p>
+        <p className="lead">You are the management team of XYZ Components. Make five decisions as your fictional manufacturer responds to sustainability pressures while protecting its business.</p>
         <div className="intro-stats"><div><strong>5</strong><span>Decisions</span></div><div><strong>5</strong><span>Innovation stages</span></div><div><strong>10</strong><span>Minutes</span></div></div>
         <div className="what-to-know"><h3>Before you begin</h3><ul><li>Each scenario has four possible management decisions.</li><li>Choose the action you would take with the information available.</li><li>You’ll receive immediate feedback explaining the strengths and risks of your choice.</li><li>Your score is calculated in this browser only. No answers or personal details are collected.</li></ul></div>
         <button className="primary-btn start-btn" onClick={() => setStarted(true)}>Start the challenge <ArrowRight size={18}/></button>
@@ -47,7 +47,7 @@
         <h1>Your decisions,<br/><em>your impact.</em></h1>
         <div className="score-display"><strong>{totalScore}</strong><span>/ 100</span></div>
         <h2>{band.title}</h2><p className="result-description">{band.description}</p>
-        <div className="result-meta"><span>{completed} of 5 decisions completed</span><span>{Math.round((totalScore / 100) * 100)}% score</span></div>
+        <div className="result-meta"><span>{completed} of 5 decisions completed</span><span>{Math.round((totalScore / 50) * 100)}% score</span></div>
         <div className="score-track"><div style={{width: `${totalScore}%`}}/></div>
         <div className="reflection"><h3>Take a moment to reflect</h3><p>Which assumption most influenced your decisions, and what evidence would make you change course?</p></div>
         <button className="primary-btn" onClick={restart}><RotateCcw size={17}/> Try again</button>
@@ -60,7 +60,7 @@
     const stageIndex = stageQuestionNumbers.indexOf(current) + 1;
     return <main className="shell quiz-shell">
       <header className="topbar"><div className="brand"><span className="brand-mark"><Leaf size={20}/></span><span>XYZ COMPONENTS</span></div><div className="session-label">CLASSROOM SESSION <span>•</span> NO LOGIN</div></header>
-      <div className="progress-wrap"><div className="progress-label"><span>YOUR PROGRESS</span><strong>{completed} / 10</strong></div><div className="progress-track"><div style={{width: `${progress}%`}}/></div></div>
+      <div className="progress-wrap"><div className="progress-label"><span>YOUR PROGRESS</span><strong>{completed} / 5</strong></div><div className="progress-track"><div style={{width: `${progress}%`}}/></div></div>
       <div className="quiz-layout">
         <aside className="stage-sidebar"><div className="sidebar-title">THE FIVE STAGES</div>{stages.map((stage, i) => {
           const stageQs = questions.map((q, index) => q.stage === i ? index : -1).filter(index => index >= 0);
@@ -69,7 +69,7 @@
           return <div className={`stage-item ${active ? 'active' : ''} ${done ? 'done' : ''}`} key={stage}><span className="stage-number">{done ? <Check size={14}/> : `0${i+1}`}</span><span>{stage}</span></div>;
         })}<div className="sidebar-note">Think like a management team: balance environmental impact, evidence, cost and execution.</div></aside>
         <section className="question-area">
-          <div className="question-kicker"><span>STAGE {question.stage + 1}</span><span className="dot">·</span><span>DECISION {current + 1} OF 10</span></div>
+          <div className="question-kicker"><span>STAGE {question.stage + 1}</span><span className="dot">·</span><span>DECISION {current + 1} OF 5</span></div>
           <h1>{question.title}</h1>
           <p className="scenario">{question.scenario}</p>
           <div className="choose-label">WHAT WOULD YOU DO?</div>
@@ -84,7 +84,7 @@
             <div className="feedback-heading"><span className="feedback-icon"><Sparkles size={17}/></span><strong>{question.options[selected].score === 10 ? 'Strong decision' : 'Consider the trade-off'}</strong><span className="feedback-tag">YOUR FEEDBACK</span></div>
             <p>{question.options[selected].feedback}</p>
           </div>}
-          <div className="question-footer"><button className="back-btn" onClick={() => current > 0 && setCurrent(current - 1)} disabled={current === 0}><ArrowLeft size={16}/> Previous</button><div className="footer-right">{selected !== undefined ? <button className="primary-btn" onClick={next}>{current === 9 ? 'View results' : 'Next decision'} <ArrowRight size={17}/></button> : <span className="select-hint">Select an option to continue</span>}</div></div>
+          <div className="question-footer"><button className="back-btn" onClick={() => current > 0 && setCurrent(current - 1)} disabled={current === 0}><ArrowLeft size={16}/> Previous</button><div className="footer-right">{selected !== undefined ? <button className="primary-btn" onClick={next}>{current === 5 ? 'View results' : 'Next decision'} <ArrowRight size={17}/></button> : <span className="select-hint">Select an option to continue</span>}</div></div>
         </section>
       </div>
       <footer className="quiz-footer">Your responses stay in this browser session and are never submitted.</footer>
