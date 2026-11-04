@@ -45,7 +45,7 @@
         <div className="result-icon"><Sparkles size={28}/></div>
         <div className="eyebrow">CHALLENGE COMPLETE</div>
         <h1>Your decisions,<br/><em>your impact.</em></h1>
-        <div className="score-display"><strong>{totalScore}</strong><span>/ 100</span></div>
+        <div className="score-display"><strong>{totalScore}</strong><span>/ 50</span></div>
         <h2>{band.title}</h2><p className="result-description">{band.description}</p>
         <div className="result-meta"><span>{completed} of 5 decisions completed</span><span>{Math.round((totalScore / 50) * 100)}% score</span></div>
         <div className="score-track"><div style={{width: `${totalScore}%`}}/></div>
